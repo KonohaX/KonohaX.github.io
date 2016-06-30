@@ -76,6 +76,7 @@
         </p>
         <h5>My favorite</h5>
         <img src="images/bang.jpg">
+        <div id="time"></div>
     </div>
 </div>
 <!-- FOOTER  -->
@@ -86,7 +87,52 @@
             e-mail:550192389@qq.com</p>
     </footer>
 </div>
-
+<script>
+      /*function dao(){
+          var endTime=new Date("2016/12/31,12:00:00");
+          var startTime=new Date();
+          var t=(endTime.getTime()-startTime.getTime())/1000;
+          var day=parseInt(t/(60*60*24));
+          var hours=parseInt(t/(60*60)%24);
+          var minutes=parseInt(t/60%60);
+          var seconds=parseInt(t%60);
+          document.getElementById("time").innerHTML="离XX还剩"+day+"天"+hours+"小时"+minutes+"分"+seconds+"秒";
+          //alert()
+          if(t<=0){
+              document.getElementById("time").innerHTML="倒计时已经结束";
+          }
+      }
+      setInterval(dao,500)*/
+      function checkTime(i){
+          if(i<10){
+              i='0'+i;
+          }
+          return i
+      }
+      function sj(){
+          var ti=new Date();
+          var y=ti.getFullYear();
+          var m=ti.getMonth()+1;
+          var d=ti.getDate();
+          var xq=ti.getDay();
+          var week=new Array;
+          week[0]="星期日";
+          week[1]="星期一";
+          week[2]="星期二";
+          week[3]="星期三";
+          week[4]="星期四";
+          week[5]="星期五";
+          week[6]="星期六";
+          //alert(week[xq]);
+          var h=ti.getHours();
+          var min=ti.getMinutes();
+          var s=ti.getSeconds();
+          min=checkTime(min);
+          s=checkTime(s);
+          document.getElementById("time").innerHTML="今天是"+y+'年'+m+'月'+d+" "+week[xq]+" "+h+':'+min+':'+s;
+      }
+      setInterval(sj,500)
+  </script>
 
 
 </body>
